@@ -37,12 +37,61 @@
 
         <main class="app-main" id="main-content" role="main">
 
-            <!-- Dashboard (this will be added in M5) -->
+            <!-- Dashboard (M5 deploy) -->
             <section class="page active" id="page-dashboard" aria-labelledby="dashboard-heading">
-                <h1 id="dashboard-heading">Dashboard</h1>
-                <!-- add balance card, stats, cap, trend -->
-                <p style="color:var(--color-text-muted);">Dashboard content – will be built in M5.</p>
-            </section>
+                    <h1 id="dashboard-heading">Dashboard</h1>
+
+                    <!-- Balance Card -->
+                    <div class="balance-card" role="figure" aria-label="Account balance summary">
+                        <div class="balance-amount" id="balance-display">$3,540.60</div>
+                        <div class="balance-sub">
+                            <span><span class="income-label">&#9650; Income</span> <span id="dash-income">$4,200</span></span>
+                            <span><span class="expense-label">&#9660; Expenses</span> <span id="dash-expenses">$1,560</span></span>
+                            <span>Avg. monthly <span id="avg-expense">$1,560</span></span>
+                        </div>
+                        <div class="currency-conversion" id="currency-conversion" aria-label="Amount in other currencies"></div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid" role="list" aria-label="Statistics summary">
+                        <div class="stat-card" role="listitem">
+                            <div class="stat-label">Total Transactions</div>
+                            <div class="stat-value amber" id="stat-count">0</div>
+                        </div>
+                        <div class="stat-card" role="listitem">
+                            <div class="stat-label">Total Income</div>
+                            <div class="stat-value income" id="stat-income">$0</div>
+                        </div>
+                        <div class="stat-card" role="listitem">
+                            <div class="stat-label">Total Expenses</div>
+                            <div class="stat-value expense" id="stat-expenses">$0</div>
+                        </div>
+                        <div class="stat-card" role="listitem">
+                            <div class="stat-label">Top Category</div>
+                            <div class="stat-value amber" id="stat-top-category">—</div>
+                        </div>
+                    </div>
+
+                    <!-- Spending Cap -->
+                    <div class="card" style="margin-bottom:var(--space-lg);">
+                        <h3>Monthly Spending Cap</h3>
+                        <div style="display:flex;flex-wrap:wrap;gap:var(--space-md);align-items:center;">
+                            <label for="cap-input" style="font-size:0.875rem;color:var(--color-text-secondary);">Target:</label>
+                            <input type="number" id="cap-input" value="2000" step="100" min="0"
+                                style="width:140px;padding:var(--space-xs) var(--space-sm);background:var(--color-navy);border:1px solid var(--color-border);border-radius:var(--radius-sm);color:var(--color-text-primary);font-family:var(--font-mono);" />
+                            <button class="btn btn-primary btn-sm" id="cap-set-btn">Set Cap</button>
+                            <span style="font-size:0.875rem;color:var(--color-text-secondary);" id="cap-status">Remaining: $2,640</span>
+                        </div>
+                    </div>
+
+                    <!-- Trend Chart -->
+                    <div class="card" style="margin-bottom:var(--space-lg);">
+                        <h3>Last 7 Days Trend</h3>
+                        <div id="trend-chart" style="display:flex;align-items:flex-end;gap:var(--space-sm);height:120px;padding-top:var(--space-md);"
+                            role="img" aria-label="Bar chart of daily spending for the last 7 days"></div>
+                    </div>
+                </section>
+
            <!-- Records (M4) -->
            <section class="page" id="page-records" aria-labelledby="records-heading">
                 <h1 id="records-heading">Records</h1>

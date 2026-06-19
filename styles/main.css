@@ -631,6 +631,145 @@ mark {
     font-weight: 500;
 }
 
+/* M5 – Dashboard, Cards, Stats, Balance, Trend */
+
+/* Cards */
+.card {
+    background: var(--color-surface-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+    border-color: var(--color-navy-muted);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.stat-card {
+    background: var(--color-surface-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.stat-card .stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+.stat-card .stat-value {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: var(--space-xs);
+    color: var(--color-text-primary);
+}
+
+.stat-card .stat-value.income {
+    color: var(--color-sage);
+}
+.stat-card .stat-value.expense {
+    color: var(--color-terracotta);
+}
+.stat-card .stat-value.amber {
+    color: var(--color-amber);
+}
+
+/* Balance Card */
+.balance-card {
+    background: linear-gradient(145deg, var(--color-surface-card), var(--color-navy-light));
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.balance-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: var(--color-amber-dim);
+    border-radius: 50%;
+    transform: translate(40px, -40px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.balance-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(90deg,
+            var(--color-amber) 0px,
+            var(--color-amber) 6px,
+            transparent 6px,
+            transparent 10px);
+    opacity: 0.6;
+}
+
+.balance-card .balance-amount {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.03em;
+}
+
+.balance-card .balance-sub {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: var(--space-sm);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.balance-card .balance-sub .income-label {
+    color: var(--color-sage);
+}
+.balance-card .balance-sub .expense-label {
+    color: var(--color-terracotta);
+}
+
+.balance-card .currency-conversion {
+    margin-top: var(--space-sm);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+.balance-card .currency-conversion span {
+    background: var(--color-navy);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+}
 
 .sr-only {
     position: absolute !important;
