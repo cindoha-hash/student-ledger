@@ -47,6 +47,9 @@ Each transaction record is a plain JavaScript object with the following fields:
   "createdAt": "2025-09-25T12:00:00.000Z",
   "updatedAt": "2025-09-25T12:00:00.000Z"
 }
+
+```text
+
 ## STUDENT-LEDGER-DASHBOARD-- WIREFRAMES 
 ┌──────────────────────────────────────┐
 │  Student Ledger   [Dash][Rec][Add]  │
@@ -98,6 +101,8 @@ Each transaction record is a plain JavaScript object with the following fields:
 │  │  [Export]  │                     │
 │  └────────────┘                     │
 └──────────────────────────────────────┘
+```
+```text
 
 Accessibility (a11y) Plan
 Semantic HTML: <header>, <nav>, <main>, <section>, <footer>.
@@ -122,6 +127,8 @@ Search highlights: <mark> with sufficient contrast.
 
 Keyboard navigation: all interactive elements reachable with Tab; Enter/Space activate; Escape cancels editing.
 
+```text
+
 Regex Validation Rules
 Rule	Pattern	Purpose
 Description	/^\S(?:.*\S)?$/	No leading/trailing spaces; collapse doubles.
@@ -137,6 +144,10 @@ Search examples (to be implemented later):
 
 /\b(\w+)\s+\1\b/ – find duplicate words in descriptions.
 
+```
+
+```text
+
 ##Keyboard Map
 
 Key / Combination	Action
@@ -144,3 +155,6 @@ Tab / Shift+Tab	Navigate between interactive elements.
 Enter	Activate focused button / submit form.
 Space	Toggle / activate focused button.
 Escape	Cancel editing (closes the edit form).
+
+```
+
