@@ -48,113 +48,109 @@ Each transaction record is a plain JavaScript object with the following fields:
   "updatedAt": "2025-09-25T12:00:00.000Z"
 }
 
-```text
+## UI Layout Wireframes
 
+```text
 ## STUDENT-LEDGER-DASHBOARD-- WIREFRAMES 
-┌──────────────────────────────────────┐
-│  Student Ledger   [Dash][Rec][Add]  │
-├──────────────────────────────────────┤
-│  ┌────────────────────────────────┐  │
-│  │  $3,540.60                    │  │
-│  │  ▲ Income $4,200  ▼ Exp $1,560│  │
-│  └────────────────────────────────┘  │
-│  ┌──────┐ ┌──────┐ ┌──────┐ ┌────┐  │
-│  │ Totals│ │Income │ │Expense│ │Top │  │
-│  │  12   │ │$4,200 │ │$1,560 │ │Food│  │
-│  └──────┘ └──────┘ └──────┘ └────┘  │
-│  Cap: [2000] [Set]  Remaining $2,640 │
-│  Trend: [■■■■] [■■] [■■■■■] ...     │
-└──────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│  Student Ledger             [Dash][Rec][Add] │
+├──────────────────────────────────────────────┤
+│  ┌────────────────────────────────────────┐  │
+│  │  $3,540.60                             │  │
+│  │  ▲ Income $4,200          ▼ Exp $1,560 │  │
+│  └────────────────────────────────────────┘  │
+│  ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ │
+│  │ Totals │ │ Income │ │Expense │ │  Top   │ │
+│  │   12   │ │ $4,200 │ │ $1,560 │ │  Food  │ │
+│  └────────┘ └────────┘ └────────┘ └────────┘ │
+│  Cap: [2000] [Set]           Remaining $2,640 │
+│  Trend: [■■■■] [■■] [■■■■■] ...              │
+└──────────────────────────────────────────────┘
 
 ## STUDENT-LEDGER-RECORDS-- WIREFRAMES 
-┌──────────────────────────────────────┐
-│  Search: [ /coffee|tea/i ]  12 recs │
-│  Try: /coffee|tea/i  /\.\d{2}\b/    │
-│  ┌─────────────────────────────────┐ │
-│  │Date    │Description   │Cat  │Amt │ │
-│  │2025-09-25│Lunch at cafeteria│Food│-$12.50│
-│  │2025-09-23│Chemistry textbook│Books│-$89.99│
-│  └─────────────────────────────────┘ │
-│  [Export] [Import] [Seed] [Clear]    │
-└──────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│  Search: [ /coffee|tea/i ]           12 recs │
+│  Try: /coffee|tea/i  /\.\d{2}\b/             │
+│  ┌────────────────────────────────────────┐  │
+│  │ Date       │ Description   │ Cat │ Amt │  │
+│  ├────────────┼───────────────┼─────┼─────┤  │
+│  │ 2025-09-25 │ Lunch at caf. │Food │-12.5│  │
+│  │ 2025-09-23 │ Chem textbook │Books│-89.9│  │
+│  └────────────────────────────────────────┘  │
+│  [Export] [Import] [Seed] [Clear]            │
+└──────────────────────────────────────────────┘
+
 ## STUDENT-LEDGER-FORMS-- WIREFRAMES 
-┌──────────────────────────────────────┐
-│  Add Transaction                     │
-│  Description: [__________________]   │
-│  Amount:      [_________]           │
-│  Category:    [Food ▼]              │
-│  Date:        [2025-09-29]          │
-│  [Add]  [Cancel]                    │
-└──────────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│  Add Transaction                             │
+│                                              │
+│  Description: [___________________________]  │
+│  Amount:      [___________________________]  │
+│  Category:    [Food                     ▼]  │
+│  Date:        [2025-09-29                 ]  │
+│                                              │
+│  [Add]  [Cancel]                             │
+└──────────────────────────────────────────────┘
+
 ## STUDENT-LEDGER-SETTINGS-- WIREFRAMES 
-┌──────────────────────────────────────┐
-│  Settings                            │
-│  ┌────────────┐ ┌────────────┐      │
-│  │  Currency   │ │ Categories │      │
-│  │  Base: USD  │ │  Food      │      │
-│  │  Alt1: EUR  │ │  Books     │      │
-│  │  Alt2: GBP  │ │  [+ Add]   │      │
-│  └────────────┘ └────────────┘      │
-│  ┌────────────┐                     │
-│  │  Data      │                     │
-│  │  Records:12│                     │
-│  │  [Export]  │                     │
-│  └────────────┘                     │
-└──────────────────────────────────────┘
-```
-```text
-
-Accessibility (a11y) Plan
-Semantic HTML: <header>, <nav>, <main>, <section>, <footer>.
-
-Heading hierarchy: <h1>, <h2>, <h3> – no skipped levels.
-
-Skip link: visible on focus, jumps to #main-content.
-
-ARIA live regions: role="status" (polite) for confirmations, role="alert" (assertive) for errors.
-
-Form labels: every input has a <label> with for attribute.
-
-Error messaging: aria-describedby links inputs to hint/error containers.
-
-Focus styles: :focus-visible with 3px amber outline.
-
-Colour contrast: navy (#11141C) with amber (#F2B84B), sage (#7BAF8A), terracotta (#D4836A) – all pass WCAG AA.
-
-Colour + icon: income/expense indicators use both colour and text labels (▲/▼) – never colour alone.
-
-Search highlights: <mark> with sufficient contrast.
-
-Keyboard navigation: all interactive elements reachable with Tab; Enter/Space activate; Escape cancels editing.
-
-```text
-
-Regex Validation Rules
-Rule	Pattern	Purpose
-Description	/^\S(?:.*\S)?$/	No leading/trailing spaces; collapse doubles.
-Amount	/^(0|[1-9]\d*)(\.\d{1,2})?$/	Positive number with up to 2 decimals.
-Date	/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/	Valid calendar date (YYYY-MM-DD).
-Category	/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/	Letters, spaces, hyphens only.
-Advanced (lookahead)	/(?=.*\d)(?=.*[a-zA-Z])(?=.*[^\w\s])/	At least one digit, one letter, one special character.
-Search examples (to be implemented later):
-
-/coffee|tea/i – find coffee or tea transactions.
-
-/\.\d{2}\b/ – find amounts with cents.
-
-/\b(\w+)\s+\1\b/ – find duplicate words in descriptions.
-
+┌──────────────────────────────────────────────┐
+│  Settings                                    │
+│  ┌──────────────────┐ ┌──────────────────┐   │
+│  │ Currency         │ │ Categories       │   │
+│  │ Base: USD        │ │  Food            │   │
+│  │ Alt1: EUR        │ │  Books           │   │
+│  │ Alt2: GBP        │ │  [+ Add]         │   │
+│  └──────────────────┘ └──────────────────┘   │
+│  ┌──────────────────┐                        │
+│  │ Data             │                        │
+│  │ Records: 12      │                        │
+│  │ [Export]         │                        │
+│  └──────────────────┘                        │
+└──────────────────────────────────────────────┘
 ```
 
-```text
+---
 
-##Keyboard Map
+## Accessibility (a11y) Plan
 
-Key / Combination	Action
-Tab / Shift+Tab	Navigate between interactive elements.
-Enter	Activate focused button / submit form.
-Space	Toggle / activate focused button.
-Escape	Cancel editing (closes the edit form).
+*   **Semantic HTML**: Utilizes `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>` layout tags.
+*   **Heading Hierarchy**: Structured clean navigation using `<h1>`, `<h2>`, and `<h3>` tags with no skipped levels.
+*   **Skip Link**: A skip-to-content helper visible on keyboard focus that directly jumps viewports to `#main-content`.
+*   **ARIA Live Regions**: Built using `role="status"` (polite delivery) for standard confirmations and `role="alert"` (assertive delivery) for form errors.
+*   **Form Labels**: Every interactive entry field maps cleanly to a dedicated `<label>` tracking an explicit `for` property attribute match.
+*   **Error Messaging**: Connects layout input boxes dynamically to secondary feedback containers using `aria-describedby`.
+*   **Focus Styles**: Standardized interactive indicators styled around a clear `:focus-visible` pseudoclass with a 3px amber outline rule.
+*   **Color Contrast**: Combines deep navy (`#11141C`) backgrounds with amber (`#F2B84B`), sage (`#7BAF8A`), and terracotta (`#D4836A`) functional indicators ensuring full WCAG AA standard compliance.
+*   **Color + Icon Rules**: Income or expense direction signals deploy explicit symbols alongside standard dynamic color accents (`▲`/`▼`) so navigation never hinges purely on color parsing.
+*   **Search Highlights**: Utilizes the custom semantic `<mark>` styling mechanism providing maximum contrast properties.
+*   **Keyboard Navigation**: Built so users can fluidly jump between interactive points utilizing `Tab` loops, trigger events via `Enter`/`Space`, and terminate forms or processes by tapping `Escape`.
 
-```
+---
+
+## Regex Validation Rules
+
+| Rule Name | Target Pattern | Engineering Purpose |
+| :--- | :--- | :--- |
+| **Description** | `/^\S(?:.*\S)?\$/` | Trims white spaces and rejects double spacing entry faults. |
+| **Amount** | `/^(0\|[1-9]\d*)(\.\d{1,2})?\$/` | Evaluates positive numerical limits mapping down to two clean decimals. |
+| **Date** | `/^\d{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[12]\d\|3[01])\$/` | Matches traditional standardized `YYYY-MM-DD` structured dates. |
+| **Category** | `/^[A-Za-z]+(?:[ -][A-Za-z]+)*\$/` | Caps entry targets to clean strings containing letters, standard spaces, or hyphens. |
+| **Advanced** | `/(?=.*\d)(?=.*[a-zA-Z])(?=.*[^\w\s])/` | A clean variable lookahead verifying at least one numerical digit, character string letter, and symbol string modifier exists. |
+
+### Future Search Pattern Targets:
+*   `/coffee|tea/i` – Tracks down any specific instances matching coffee or tea variations.
+*   `/\.\d{2}\b/` – Filters transaction strings displaying exact cents details.
+*   `/\b(\w+)\s+\1\b/` – Automatically flags double word typos inside your application descriptions.
+
+---
+
+## Keyboard Navigation Map
+
+| Key / Combination | Target Action |
+| :--- | :--- |
+| **Tab / Shift + Tab** | Jumps highlight selections back and forth across page interactive nodes. |
+| **Enter** | Fires focused operations or processes form validation execution loops. |
+| **Space** | Toggles interactive choices or activates selected element states. |
+| **Escape** | Closes down open data processing windows or reverts modification edits. |
+
 
