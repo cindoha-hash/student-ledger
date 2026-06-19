@@ -2,7 +2,6 @@
 
 import { fetchRecords, fetchCurrentSort, fetchSearchRegex, fetchCapTarget, fetchCurrencySettings } from './state.js';
 import { highlightText } from './search.js';
-
 const currencySymbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'C$', AUD: 'A$' };
 
 function convertCurrency(amount, from, to, settings) {

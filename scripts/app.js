@@ -30,9 +30,6 @@ import {
 // Internal state (tracking edit mode)
 let editingId = null;
 
-// ------------------------------------------
-// Start the application
-// ------------------------------------------
 function startApp() {
     loadState();
 
@@ -115,7 +112,7 @@ function startApp() {
         sayStatus(`Spending cap set to $${value}`, 'status');
     });
 
-    // ----- M6: Export, Import, Seed, Clear -----
+    // M6: Export, Import, Seed, Clear 
     document.getElementById('export-json-btn').addEventListener('click', exportData);
     document.getElementById('settings-export-btn').addEventListener('click', exportData);
 
@@ -133,7 +130,7 @@ function startApp() {
     document.getElementById('clear-btn').addEventListener('click', clearAll);
     document.getElementById('settings-clear-btn').addEventListener('click', clearAll);
 
-    // ----- M6: Categories -----
+    // M6: Categories 
     document.getElementById('add-category-btn').addEventListener('click', addCategory);
     document.getElementById('new-category-input').addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
@@ -142,13 +139,13 @@ function startApp() {
         }
     });
 
-    // ----- M6: Currency Settings -----
+    //  M6: Currency Settings 
     document.querySelectorAll('#currency-base, #currency-alt1, #currency-alt2, #rate-base-alt1, #rate-base-alt2, #display-currency')
         .forEach(el => {
             el.addEventListener('change', saveCurrencySettings);
         });
 
-    // ----- M7: Escape key to cancel edit -----
+    // M7: Escape key to cancel edit 
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && editingId) {
             cancelEdit();
@@ -189,7 +186,7 @@ function handleFormSubmit(e) {
     if (description.length > 0 && !validators.complex(description)) {
         const successEl = document.getElementById('desc-success');
         if (successEl) {
-            successEl.textContent = '💡 Tip: include a number, letter, and special char.';
+            successEl.textContent = 'Tip: include a number, letter, and special char.';
             successEl.classList.add('visible');
         }
     }
@@ -305,7 +302,7 @@ function showFieldError(id, msg) {
     }
 }
 
-// M6 – Data Import / Export / Seed / Clear
+// M6 – Data Import / Export 
 
 function exportData() {
     const records = fetchRecords();
@@ -398,14 +395,14 @@ function addCategory() {
             return;
         }
     }
-    // Add to UI list
+
     const row = document.createElement('div');
     row.className = 'setting-row';
     row.style.cssText = 'border-bottom:1px solid var(--color-border);padding:var(--space-xs) 0;';
     row.innerHTML = `<span style="flex:1;font-size:0.875rem;">${val}</span>`;
     document.getElementById('category-list').appendChild(row);
     input.value = '';
-    // Add to form select
+
     const sel = document.getElementById('form-category');
     const opt = document.createElement('option');
     opt.value = val;
