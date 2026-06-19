@@ -771,6 +771,77 @@ mark {
     font-family: var(--font-mono);
 }
 
+/* Settings (M6) */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .settings-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (min-width: 1024px) {
+    .settings-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.settings-section {
+    background: var(--color-surface-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+}
+
+.settings-section h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.setting-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row label {
+    min-width: 100px;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.setting-row input,
+.setting-row select {
+    flex: 1;
+    min-width: 120px;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-navy);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+.setting-row input:focus,
+.setting-row select:focus {
+    border-color: var(--color-amber);
+    box-shadow: var(--shadow-focus);
+    outline: none;
+}
+
 .sr-only {
     position: absolute !important;
     width: 1px !important;
