@@ -1,0 +1,151 @@
+<!-- M2 – Semantic HTML & Base CSS-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Ledger · Finance Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+    
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div role="status" aria-live="polite" class="aria-live" id="live-status"></div>
+    <div role="alert" aria-live="assertive" class="aria-live" id="live-alert"></div>
+
+    <div class="app-wrapper">
+
+        <header class="app-header" role="banner">
+            <a href="#" class="app-logo" aria-label="Student Ledger home">
+                <span class="logo-icon" aria-hidden="true">&#8356;</span>
+                <span>Student Ledger</span>
+            </a>
+            <nav class="app-nav" role="navigation" aria-label="Main navigation">
+                <button data-page="dashboard" aria-current="page">Dashboard</button>
+                <button data-page="records">Records</button>
+                <button data-page="add">Add</button>
+                <button data-page="settings">Settings</button>
+                <button data-page="about">About</button>
+            </nav>
+        </header>
+
+        <main class="app-main" id="main-content" role="main">
+
+            <!-- Dashboard (this will be added in M5) -->
+            <section class="page active" id="page-dashboard" aria-labelledby="dashboard-heading">
+                <h1 id="dashboard-heading">Dashboard</h1>
+                <!-- add balance card, stats, cap, trend -->
+                <p style="color:var(--color-text-muted);">Dashboard content – will be built in M5.</p>
+            </section>
+
+            <!-- Records (this will be added in M4) -->
+            <section class="page" id="page-records" aria-labelledby="records-heading">
+                <h1 id="records-heading">Records</h1>
+                <!-- add search bar and table -->
+                <p style="color:var(--color-text-muted);">Records content – will be built in M4.</p>
+            </section>
+
+            <!-- Add / Edit (this will be added in M3) -->
+            <section class="page" id="page-add" aria-labelledby="add-heading">
+                <h1 id="add-heading">Add Transaction</h1>
+                <!-- add the form with validation -->
+                <p style="color:var(--color-text-muted);">Add form – will be built in M3.</p>
+            </section>
+
+            <!-- Settings (this will be added in M6) -->
+            <section class="page" id="page-settings" aria-labelledby="settings-heading">
+                <h1 id="settings-heading">Settings</h1>
+                <!-- add currency, categories, data controls -->
+                <p style="color:var(--color-text-muted);">Settings content – will be built in M6.</p>
+            </section>
+
+           
+            <section class="page" id="page-about" aria-labelledby="about-heading">
+                <h1 id="about-heading">About</h1>
+            
+                <div class="card" style="margin-bottom:var(--space-lg);">
+                    <p style="color:var(--color-text-secondary);margin-bottom:var(--space-md);">
+                        <strong>Student Ledger</strong> is a finance tracker built for the <strong>Building Responsive UI</strong>
+                        summative assignment. It follows a <strong>student-ledger design</strong> with a deep navy palette,
+                        warm amber accents, and a torn-ledger-edge motif.
+                    </p>
+                    <p style="color:var(--color-text-muted);font-size:0.875rem;">
+                        <strong>Contact:</strong>
+                        <a href="https://github.com/cindoha-hash" style="color:var(--color-amber);">GitHub</a>
+                        &middot;
+                        <a href="mailto:c.indoha@alustudent.com" style="color:var(--color-amber);">c.indoha@alustudent.com</a>
+                    </p>
+                </div>
+                
+                <div class="m1-docs" id="m1-docs" aria-label="Milestone 1 documentation">
+                    <h2>&#128220; M1 — Spec &amp; Wireframes</h2>
+                    <h3>Theme</h3>
+                    <p><span class="badge">Student Finance Tracker</span></p>
+                    <h3>Data Model</h3>
+                    <ul>
+                        <li><code>id</code> — unique identifier</li>
+                        <li><code>description</code> — transaction title</li>
+                        <li><code>amount</code> — numeric value</li>
+                        <li><code>category</code> — editable list</li>
+                        <li><code>date</code> — YYYY-MM-DD</li>
+                        <li><code>createdAt</code>, <code>updatedAt</code></li>
+                    </ul>
+                    <h3>Wireframes</h3>
+                    <div class="wireframe-grid">
+                        <div class="wf-item"><span class="wf-icon" aria-hidden="true">&#128202;</span>Dashboard</div>
+                        <div class="wf-item"><span class="wf-icon" aria-hidden="true">&#128220;</span>Records</div>
+                        <div class="wf-item"><span class="wf-icon" aria-hidden="true">&#9998;</span>Add/Edit</div>
+                        <div class="wf-item"><span class="wf-icon" aria-hidden="true">&#9881;</span>Settings</div>
+                        <div class="wf-item"><span class="wf-icon" aria-hidden="true">&#9432;</span>About</div>
+                    </div>
+                    <h3>Accessibility Plan</h3>
+                    <ul>
+                        <li>Semantic landmarks</li>
+                        <li>Skip link</li>
+                        <li>ARIA live regions</li>
+                        <li>Labels + aria-describedby</li>
+                        <li>Visible focus</li>
+                        <li>Colour contrast</li>
+                        <li>Keyboard navigation</li>
+                    </ul>
+                    <h3>Regex Validation Rules</h3>
+                    <ul>
+                        <li><code>/^\S(?:.*\S)?$/</code> — description</li>
+                        <li><code>/^(0|[1-9]\d*)(\.\d{1,2})?$/</code> — amount</li>
+                        <li><code>/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/</code> — date</li>
+                        <li><code>/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/</code> — category</li>
+                        <li><code>/(?=.*\d)(?=.*[a-zA-Z])(?=.*[^\w\s])/</code> — advanced</li>
+                    </ul>
+                    <h3>Keyboard Map</h3>
+                    <ul>
+                        <li><kbd>Tab</kbd> / <kbd>Shift+Tab</kbd> — navigate</li>
+                        <li><kbd>Enter</kbd> / <kbd>Space</kbd> — activate</li>
+                        <li><kbd>Escape</kbd> — cancel</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+
+        
+        <footer class="app-footer" role="contentinfo">
+            <span>&copy; 2026 Student Ledger &middot; Built for the Building Responsive UI assignment</span>
+            <span>
+                <a href="#m1-docs">M1 Docs</a>
+                &middot;
+                <a href="https://github.com/cindoha-hash" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </span>
+        </footer>
+
+    </div>
+
+    <!--M4+ – JavaScript will be added later -->
+    <!-- <script type="module" src="scripts/app.js"></script> -->
+
+</body>
+</html>
