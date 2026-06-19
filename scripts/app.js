@@ -36,6 +36,19 @@ function startApp() {
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('form-date').value = today;
 
+    if (fetchRecords().length === 0) {
+    fetch('seed.json')
+        .then(res => res.json())
+        .then(data => {
+            setRecords(data);
+            refreshUI();
+            sayStatus('Loaded sample data.', 'status');
+        })
+        .catch(() => {
+            sayStatus('Could not load seed data.', 'alert');
+        });
+    }
+
     refreshUI();
 
     // Navigation
@@ -428,3 +441,4 @@ function saveCurrencySettings() {
 
 // Start the app when DOM is ready
 document.addEventListener('DOMContentLoaded', startApp);
+

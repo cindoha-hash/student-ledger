@@ -155,4 +155,6 @@ Each transaction record is a plain JavaScript object with the following fields:
 | **Space** | Toggles interactive choices or activates selected element states. |
 | **Escape** | Closes down open data processing windows or reverts modification edits. |
 
+## Deployment
 
+**Live URL:** [https://cindoha-hash.github.io/student-ledger](https://cindoha-hash.github.io/student-ledger)

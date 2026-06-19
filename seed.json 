@@ -1,0 +1,110 @@
+[
+  {
+    "id": "txn_0001",
+    "description": "Lunch at cafeteria",
+    "amount": -12.50,
+    "category": "Food",
+    "date": "2025-09-25",
+    "createdAt": "2025-09-25T12:00:00.000Z",
+    "updatedAt": "2025-09-25T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0002",
+    "description": "Chemistry textbook",
+    "amount": -89.99,
+    "category": "Books",
+    "date": "2025-09-23",
+    "createdAt": "2025-09-23T12:00:00.000Z",
+    "updatedAt": "2025-09-23T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0003",
+    "description": "Bus pass",
+    "amount": -45.00,
+    "category": "Transport",
+    "date": "2025-09-20",
+    "createdAt": "2025-09-20T12:00:00.000Z",
+    "updatedAt": "2025-09-20T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0004",
+    "description": "Coffee with friends",
+    "amount": -8.75,
+    "category": "Entertainment",
+    "date": "2025-09-28",
+    "createdAt": "2025-09-28T12:00:00.000Z",
+    "updatedAt": "2025-09-28T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0005",
+    "description": "Freelance design work",
+    "amount": 200.00,
+    "category": "Other",
+    "date": "2025-09-15",
+    "createdAt": "2025-09-15T12:00:00.000Z",
+    "updatedAt": "2025-09-15T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0006",
+    "description": "Tuition payment",
+    "amount": -560.00,
+    "category": "Fees",
+    "date": "2025-09-01",
+    "createdAt": "2025-09-01T12:00:00.000Z",
+    "updatedAt": "2025-09-01T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0007",
+    "description": "Part-time job salary",
+    "amount": 1200.00,
+    "category": "Other",
+    "date": "2025-09-30",
+    "createdAt": "2025-09-30T12:00:00.000Z",
+    "updatedAt": "2025-09-30T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0008",
+    "description": "Movie tickets",
+    "amount": -24.00,
+    "category": "Entertainment",
+    "date": "2025-09-27",
+    "createdAt": "2025-09-27T12:00:00.000Z",
+    "updatedAt": "2025-09-27T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0009",
+    "description": "Groceries",
+    "amount": -67.30,
+    "category": "Food",
+    "date": "2025-09-22",
+    "createdAt": "2025-09-22T12:00:00.000Z",
+    "updatedAt": "2025-09-22T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0010",
+    "description": "Online course",
+    "amount": -149.99,
+    "category": "Books",
+    "date": "2025-09-18",
+    "createdAt": "2025-09-18T12:00:00.000Z",
+    "updatedAt": "2025-09-18T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0011",
+    "description": "Freelance bonus",
+    "amount": 50.00,
+    "category": "Other",
+    "date": "2025-09-29",
+    "createdAt": "2025-09-29T12:00:00.000Z",
+    "updatedAt": "2025-09-29T12:00:00.000Z"
+  },
+  {
+    "id": "txn_0012",
+    "description": "Coffee & tea with study group",
+    "amount": -14.50,
+    "category": "Entertainment",
+    "date": "2025-09-26",
+    "createdAt": "2025-09-26T12:00:00.000Z",
+    "updatedAt": "2025-09-26T12:00:00.000Z"
+  }
+]

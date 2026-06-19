@@ -25,7 +25,7 @@
     --color-black: #0B0D14;
 
     /* Typography */
-    --font-display: 'Fraunces', serif;
+    --font-display: 'Inter', system-ui, -apple-system, sans-serif;
     --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
 
@@ -126,30 +126,13 @@ body {
     gap: var(--space-md);
 }
 
-.app-logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-family: var(--font-display);
-    font-weight: 700;
+.app-title {
+   font-family: var(--font-display);
+    font-weight: 600;
     font-size: 1.25rem;
     letter-spacing: -0.02em;
     color: var(--color-text-primary);
-    text-decoration: none;
 }
-.app-logo .logo-icon {
-    display: inline-block;
-    background: var(--color-amber);
-    color: var(--color-navy);
-    width: 2rem;
-    height: 2rem;
-    border-radius: var(--radius-sm);
-    text-align: center;
-    line-height: 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-
 .app-nav {
     display: flex;
     flex-wrap: wrap;
@@ -312,13 +295,13 @@ h4 {
     box-shadow: var(--shadow-card);
     border: 1px solid var(--color-border);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    margin-bottom: var(--space-lg);
 }
 .card:hover {
     border-color: var(--color-navy-muted);
 }
 
 /* Stats, Balance, Table, Form, etc. – will be added these in later milestones */
-
 .m1-docs {
     background: var(--color-surface-card);
     border-radius: var(--radius-lg);
@@ -472,25 +455,108 @@ h4 {
 }
 
 /* Submit and cancel buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: 0.6rem 1.2rem;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    min-height: 2.5rem;
+    background: var(--color-navy-light);
+    color: var(--color-text-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+/* Primary (Amber) */
 .btn-primary {
     background: var(--color-amber);
     color: var(--color-navy);
+    font-weight: 600;
 }
-
 .btn-primary:hover {
     background: #e6a83a;
-    box-shadow: 0 4px 16px rgba(242, 184, 75, 0.3);
+    box-shadow: 0 4px 16px rgba(242, 184, 75, 0.4);
 }
 
+/* Success (Sage) */
+.btn-success {
+    background: var(--color-sage);
+    color: var(--color-navy);
+}
+.btn-success:hover {
+    background: #6a9f7a;
+    box-shadow: 0 4px 16px rgba(123, 175, 138, 0.4);
+}
+
+/* Danger (Terracotta) */
+.btn-danger {
+    background: var(--color-terracotta);
+    color: var(--color-navy);
+}
+.btn-danger:hover {
+    background: #c4745a;
+    box-shadow: 0 4px 16px rgba(212, 131, 106, 0.4);
+}
+
+/* Outline (Ghost) */
 .btn-outline {
     background: transparent;
-    border: 1px solid var(--color-border);
+    border: 1.5px solid var(--color-border);
     color: var(--color-text-secondary);
+    box-shadow: none;
 }
-
 .btn-outline:hover {
     background: var(--color-surface-card);
+    border-color: var(--color-text-secondary);
     color: var(--color-text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Small variant */
+.btn-sm {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    min-height: 2rem;
+    border-radius: var(--radius-sm);
+}
+
+/* Block (full width) */
+.btn-block {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Disabled state */
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* M4 – Table & Search Styles*/

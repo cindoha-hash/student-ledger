@@ -14,7 +14,6 @@
 </head>
 <body>
 
-    
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div role="status" aria-live="polite" class="aria-live" id="live-status"></div>
     <div role="alert" aria-live="assertive" class="aria-live" id="live-alert"></div>
@@ -22,10 +21,7 @@
     <div class="app-wrapper">
 
         <header class="app-header" role="banner">
-            <a href="#" class="app-logo" aria-label="Student Ledger home">
-                <span class="logo-icon" aria-hidden="true">&#8356;</span>
-                <span>Student Ledger</span>
-            </a>
+                <span class="app-title" >Student Ledger</span>
             <nav class="app-nav" role="navigation" aria-label="Main navigation">
                 <button data-page="dashboard" aria-current="page">Dashboard</button>
                 <button data-page="records">Records</button>
@@ -143,65 +139,68 @@
             </section>
 
            <!-- Add / Edit (added in M3) -->
-            <section class="page" id="page-add" aria-labelledby="add-heading">
-                <h1 id="add-heading">Add Transaction</h1>
-                
-                <form id="transaction-form" novalidate>
+                <section class="page" id="page-add" aria-labelledby="add-heading">
+                    <h1 id="add-heading">Add Transaction</h1>
 
-                    <input type="hidden" id="edit-id" value="" />
+                    <form id="transaction-form" novalidate>
+                        <input type="hidden" id="edit-id" value="" />
 
-                    <div class="form-row">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-description">Description <span class="required" aria-hidden="true">*</span></label>
+                                <input type="text" id="form-description" placeholder="e.g. Lunch at cafeteria"
+                                    required aria-describedby="desc-hint desc-error" />
+                                <div class="field-hint" id="desc-hint">No leading/trailing spaces. Max 60 chars.</div>
+                                <div class="field-error" id="desc-error" role="alert">Please enter a valid description.</div>
+                                <div class="field-success" id="desc-success"></div>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="form-description">Description <span class="required" aria-hidden="true">*</span></label>
-                            <input type="text" id="form-description" placeholder="lunch" required aria-describedby="desc-hint desc-error"/>
-                            <div class="field-hint" id="desc-hint">No leading/trailing spaces. Max 60 char.</div>
-                            <div class="field-error" id="desc-error">Please enter a valid description.</div>
-                            <div class="field-success" id="desc-success"></div>
+                            <div class="form-group">
+                                <label for="form-amount">Amount <span class="required" aria-hidden="true">*</span></label>
+                                <input type="text" id="form-amount" placeholder="0.00"
+                                    required aria-describedby="amount-hint amount-error" />
+                                <div class="field-hint" id="amount-hint">Enter a positive number. Then select Income or Expense below.</div>
+                                <div class="field-error" id="amount-error" role="alert">Enter a valid amount (e.g. 12.50).</div>
+                            </div>
                         </div>
-                    
-                        <div class="form-group">
-                            <label for="form-amount">Amount <span class="required" aria-hidden="true">*</span></label>
-                            <input type="text" id="form-amount" placeholder="0.00"
-                                              required aria-describedby="amount-hint amount-error" />
-                            <div class="field-hint" id="amount-hint">Positive number with up to 2 decimals.</div>
-                            <div class="field-error" id="amount-error" role="alert">Enter a valid amount (e.g. 12.50).</div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-type">Type <span class="required" aria-hidden="true">*</span></label>
+                                <select id="form-type" required>
+                                    <option value="income">Income (+)</option>
+                                    <option value="expense">Expense (−)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-category">Category <span class="required" aria-hidden="true">*</span></label>
+                                <select id="form-category" required aria-describedby="cat-error">
+                                    <option value="Food">Food</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Fees">Fees</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="field-error" id="cat-error" role="alert">Please select a category.</div>
+                            </div>
                         </div>
-                     </div>
-        <div class="form-row">
-        
-            <div class="form-group">
-                <label for="form-category">Category <span class="required" aria-hidden="true">*</span></label>
 
-                <select id="form-category" required aria-describedby="cat-error">
-                    <option value="Food">Food</option>
-                    <option value="Books">Books</option>
-                    <option value="Transport">Transport</option>
-                    <option value="Entertainment">Entertainment</option>
-                    <option value="Fees">Fees</option>
-                    <option value="Other">Other</option>
-                </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-date">Date <span class="required" aria-hidden="true">*</span></label>
+                                <input type="date" id="form-date" required aria-describedby="date-error" />
+                                <div class="field-error" id="date-error" role="alert">Enter a valid date (YYYY-MM-DD).</div>
+                            </div>
+                        </div>
 
-                <div class="field-error" id="cat-error" role="alert">Please select a category.</div>
-            </div>
-            <!-- Date -->
-            <div class="form-group">
-
-                <label for="form-date">Date <span class="required" aria-hidden="true">*</span></label>
-
-                <input type="date" id="form-date" required aria-describedby="date-error" />
-
-                <div class="field-error" id="date-error" role="alert">Enter a valid date (YYYY-MM-DD).</div>
-
-            </div>
-        </div>
-
-           <!-- Form buttons -->
-        <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-md);">
-            <button type="submit" class="btn btn-primary" id="form-submit-btn">Add Transaction</button>
-            <button type="reset" class="btn btn-outline" id="form-cancel-btn">Cancel</button> </div>
-           </form>
-            </section>
+                        <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-md);">
+                            <button type="submit" class="btn btn-primary" id="form-submit-btn">Add Transaction</button>
+                            <button type="reset" class="btn btn-outline" id="form-cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </section>
             <!-- Settings (M6) -->
             <section class="page" id="page-settings" aria-labelledby="settings-heading">
                 <h1 id="settings-heading">Settings</h1>
