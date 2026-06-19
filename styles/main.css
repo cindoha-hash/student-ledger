@@ -317,7 +317,7 @@ h4 {
     border-color: var(--color-navy-muted);
 }
 
-/* Stats, Balance, Table, Form, etc. – you will add these in later milestones */
+/* Stats, Balance, Table, Form, etc. – will be added these in later milestones */
 
 .m1-docs {
     background: var(--color-surface-card);
@@ -383,6 +383,114 @@ h4 {
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 500;
+}
+
+/*  M3 – Form & Validation Styles */
+
+/* Form groups */
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-secondary);
+}
+
+.form-group .required {
+    color: var(--color-terracotta);
+    margin-left: 2px;
+}
+
+/* Inputs, selects, textareas */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-navy);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-primary);
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-amber);
+    box-shadow: var(--shadow-focus);
+    outline: none;
+}
+
+/* Error state */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--color-error);
+}
+
+/* Hints and error messages */
+.form-group .field-hint {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+}
+
+.form-group .field-error {
+    font-size: 0.75rem;
+    color: var(--color-error);
+    margin-top: var(--space-xs);
+    display: none;
+}
+
+.form-group .field-error.visible {
+    display: block;
+}
+
+.form-group .field-success {
+    font-size: 0.75rem;
+    color: var(--color-sage);
+    margin-top: var(--space-xs);
+    display: none;
+}
+
+.form-group .field-success.visible {
+    display: block;
+}
+
+/* Two-column layout for form rows */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+/* Submit and cancel buttons */
+.btn-primary {
+    background: var(--color-amber);
+    color: var(--color-navy);
+}
+
+.btn-primary:hover {
+    background: #e6a83a;
+    box-shadow: 0 4px 16px rgba(242, 184, 75, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.btn-outline:hover {
+    background: var(--color-surface-card);
+    color: var(--color-text-primary);
 }
 
 .sr-only {

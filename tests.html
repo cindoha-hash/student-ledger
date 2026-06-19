@@ -1,0 +1,86 @@
+<!-- M3 – Regex testing from validators.js-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Validator Tests</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; background: #11141C; color: #F0EEE8; }
+        h1 { color: #F2B84B; }
+        #results { margin-top: 1rem; }
+        .pass { color: #7BAF8A; }
+        .fail { color: #D4836A; }
+        .summary { font-size: 1.2rem; margin-top: 1rem; padding: 0.5rem; background: #222838; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Validator Tests</h1>
+    <div id="results"></div>
+
+    <script type="module">
+        import { validators } from './scripts/validators.js';
+
+        // Test cases for each validator
+        const testCases = [
+            // Description
+            { label: 'Description: "Hello world" passes', check: () => validators.description('Hello world') },
+            { label: 'Description: trailing space fails', check: () => !validators.description('Hello ') },
+            { label: 'Description: 61 chars fails', check: () => !validators.description('a'.repeat(61)) },
+            { label: 'Description: multiple spaces passes', check: () => validators.description('Hello   world') },
+
+            // Amount
+            { label: 'Amount: 12.50 passes', check: () => validators.amount('12.50') },
+            { label: 'Amount: 12 passes', check: () => validators.amount('12') },
+            { label: 'Amount: 0 passes', check: () => validators.amount('0') },
+            { label: 'Amount: 12.345 fails', check: () => !validators.amount('12.345') },
+            { label: 'Amount: -12.50 fails', check: () => !validators.amount('-12.50') },
+            { label: 'Amount: "abc" fails', check: () => !validators.amount('ABC') },
+
+            // Date
+            { label: 'Date: 2025-09-29 passes', check: () => validators.date('2025-09-29') },
+            { label: 'Date: 2025-01-01 passes', check: () => validators.date('2025-01-01') },
+            { label: 'Date: 2025-12-31 passes', check: () => validators.date('2025-12-31') },
+            { label: 'Date: 2025-13-01 fails', check: () => !validators.date('2025-13-01') },
+            { label: 'Date: 2025-09-32 fails', check: () => !validators.date('2025-09-32') },
+            { label: 'Date: 29/09/2025 fails', check: () => !validators.date('29/09/2025') },
+
+            // Category
+            { label: 'Category: "food" passes', check: () => validators.category('Food') },
+            { label: 'Category: "Health Food" passes', check: () => validators.category('Health Food') },
+            { label: 'Category: "Health & Wellness" fails', check: () => !validators.category('Health & Wellness') },
+            { label: 'Category: "Food123" fails', check: () => !validators.category('Food123') },
+            { label: 'Category: "Food!" fails', check: () => !validators.category('Food!') },
+
+            // Advanced (complex)
+            { label: 'Complex: "Abc123!" passes', check: () => validators.complex('Abc123!') },
+            { label: 'Complex: "Password123!" passes', check: () => validators.complex('Password123!') },
+            { label: 'Complex: no digit fails', check: () => !validators.complex('Abcdef!') },
+            { label: 'Complex: no letter fails', check: () => !validators.complex('123456!') },
+            { label: 'Complex: no special fails', check: () => !validators.complex('Abc123') },
+            { label: 'Complex: only letters fails', check: () => !validators.complex('Abcdef') },
+        ];
+
+        // Run the tests
+        const results = document.getElementById('results');
+        let passed = 0, failed = 0;
+
+        for (const test of testCases) {
+            try {
+                const result = test.check();
+                if (result) {
+                    passed++;
+                    results.innerHTML += `<p class="pass">${test.label}</p>`;
+                } else {
+                    failed++;
+                    results.innerHTML += `<p class="fail">${test.label}</p>`;
+                }
+            } catch (error) {
+                failed++;
+                results.innerHTML += `<p class="fail">${test.label} (error: ${error.message})</p>`;
+            }
+        }
+
+        results.innerHTML += `<p class="summary"><strong> Passed: ${passed} | Failed: ${failed}</strong></p>`;
+    </script>
+</body>
+</html>
