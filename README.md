@@ -21,7 +21,6 @@ Student Ledger is a personal finance management tool designed for students to tr
 - **Responsive** – mobile‑first with breakpoints at 360px, 768px, and 1024px.
 
 ---
-
 ## Data Model
 
 Each transaction record is a plain JavaScript object with the following fields:
@@ -36,7 +35,7 @@ Each transaction record is a plain JavaScript object with the following fields:
 | `createdAt` | string | ✅ | ISO timestamp when the record was created |
 | `updatedAt` | string | ✅ | ISO timestamp when the record was last updated |
 
-**Example record:**
+### Example Record Schema
 ```json
 {
   "id": "txn_0001",
@@ -47,6 +46,9 @@ Each transaction record is a plain JavaScript object with the following fields:
   "createdAt": "2025-09-25T12:00:00.000Z",
   "updatedAt": "2025-09-25T12:00:00.000Z"
 }
+```
+
+---
 
 ## UI Layout Wireframes
 
