@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles/main.css" />
+    <script type="module" src="scripts/app.js"></script>
 </head>
 <body>
 
@@ -42,15 +43,57 @@
                 <!-- add balance card, stats, cap, trend -->
                 <p style="color:var(--color-text-muted);">Dashboard content – will be built in M5.</p>
             </section>
-
-            <!-- Records (this will be added in M4) -->
-            <section class="page" id="page-records" aria-labelledby="records-heading">
+           <!-- Records (M4) -->
+           <section class="page" id="page-records" aria-labelledby="records-heading">
                 <h1 id="records-heading">Records</h1>
-                <!-- add search bar and table -->
-                <p style="color:var(--color-text-muted);">Records content – will be built in M4.</p>
+
+    <!-- Search bar -->
+               <div class="search-bar" role="search">
+                    <label for="search-input" class="sr-only">Search records</label>
+                    <input type="text" id="search-input"
+                        placeholder="Search with regex… e.g. /coffee|tea/i"
+                        aria-describedby="search-stats search-hint" />
+                    <span class="search-stats" id="search-stats">0 records</span>
+                    <button class="btn btn-outline btn-sm" id="search-clear-btn" aria-label="Clear search">&#10005;</button>
+                </div>
+
+    <!-- Search hints -->
+                <div class="search-hint" id="search-hint">
+                <span style="color:var(--color-text-secondary);">Try:</span>
+                <code>/coffee|tea/i</code> <span style="color:var(--color-text-muted);">— beverages</span>
+                <code>/\.\d{2}\b/</code> <span style="color:var(--color-text-muted);">— cents present</span>
+                <code>/\b(\w+)\s+\1\b/</code> <span style="color:var(--color-text-muted);">— duplicate words</span>
+                </div>
+
+    <!-- Table -->
+                <div class="table-wrap" role="table" aria-label="Transaction records">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-sort="date" aria-sort="none">Date <span class="sort-icon" aria-hidden="true">&#9650;&#9660;</span></th>
+                                <th data-sort="description" aria-sort="none">Description <span class="sort-icon" aria-hidden="true">&#9650;&#9660;</span></th>
+                                <th data-sort="category" aria-sort="none">Category <span class="sort-icon" aria-hidden="true">&#9650;&#9660;</span></th>
+                                <th data-sort="amount" aria-sort="none" style="text-align:right;">Amount <span class="sort-icon" aria-hidden="true">&#9650;&#9660;</span></th>
+                                <th style="text-align:right;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-body">
+                            <tr><td colspan="5" class="table-empty">No records yet. Add your first transaction!</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+    <!-- Bulk actions -->
+                <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-sm);">
+                    <button class="btn btn-outline btn-sm" id="export-json-btn">&#11015; Export JSON</button>
+                    <button class="btn btn-outline btn-sm" id="import-json-btn">&#11014; Import JSON</button>
+                    <input type="file" id="import-file-input" accept=".json" style="display:none;" />
+                    <button class="btn btn-danger btn-sm" id="seed-btn">&#127793; Load Seed</button>
+                    <button class="btn btn-danger btn-sm" id="clear-btn">&#128465; Clear All</button>
+                </div>
             </section>
 
-            <!-- Add / Edit (this will be added in M3) -->
+           <!-- Add / Edit (added in M3) -->
             <section class="page" id="page-add" aria-labelledby="add-heading">
                 <h1 id="add-heading">Add Transaction</h1>
                 
