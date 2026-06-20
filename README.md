@@ -158,3 +158,5 @@ Each transaction record is a plain JavaScript object with the following fields:
 ## Deployment
 
 **Live URL:** [https://cindoha-hash.github.io/student-ledger](https://cindoha-hash.github.io/student-ledger)
+
+**VIDEO Live Url** [https://youtu.be/LDaBhv3bVg8](https://youtu.be/LDaBhv3bVg8)
